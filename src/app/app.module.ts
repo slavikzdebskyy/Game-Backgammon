@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { TableComponent } from './table/table.component';
+import * as _ from "lodash"
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TableComponent
   ],
   imports: [
-    BrowserModule
+		BrowserModule
+		
   ],
   providers: [],
   bootstrap: [AppComponent]

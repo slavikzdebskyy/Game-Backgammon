@@ -1,0 +1,301 @@
+@bgTable: #994d00;
+@bgHalfTable:  #604020;
+@bgRectangle1n: #e60000;
+@bgRectangle2n: #999900;
+@bgCheckerBlack:  #0d0d0d;
+@bgCheckerWhite: #f2f2f2;
+@border: #668cff;
+@colorButtons: #fff;
+
+
+@sizeTableW: 800px;
+@sizeTableH: 600px;
+@sizeChecker: 60px;
+@sizeKubikContainer: 200px;
+@sizeOutContainer: 260px;
+@sizeKubik: 50px;
+@sizeButton: 50px;
+
+body {
+	background: #993333;
+}
+.container {
+	display: flex;
+	justify-content: center;
+	.black {
+	background: @bgCheckerBlack;
+	}
+	.white {
+		background: @bgCheckerWhite;
+		}
+	.checker {
+		box-sizing: border-box;
+		width: @sizeChecker;
+		height: @sizeChecker;
+		border-radius: 50%;
+		border: 2px solid @bgHalfTable;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		.in-1 {
+			width: @sizeChecker/3;
+			height: @sizeChecker/3;
+			border-radius: 50%;
+			border: 1px solid @bgHalfTable;
+		}//	in-1
+		.in-2 {
+			width: @sizeChecker*0.65;
+			height: @sizeChecker*0.65;
+			border-radius: 50%;
+			border: 1px solid @bgHalfTable;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}//	in-2
+	}//` checker
+	.table-disable {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: @sizeTableW;
+		min-height: @sizeTableH;		
+		background: none;
+		z-index: 5;
+	}//	table-disable
+	.game-over{
+		position: absolute;
+		top: 0;
+		left: -170px;
+		z-index: 6;
+		width: @sizeTableW * 1.5;
+		min-height: @sizeTableH;
+		background: rgba(0,0,0,0.8);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		h1 {
+			width: 100%;
+			color: #fff;
+			margin: 20px 0 50px;
+			font-size: 40px;
+			font-family: sans-serif;
+		}
+		button {
+			width: @sizeButton * 5;
+			height: @sizeButton * 2;
+			background: none;
+			outline: none;
+			border: 3px solid @bgHalfTable;
+			border-radius: 20px;
+			font-size: 24px;
+			font-family: sans-serif;
+			color: @colorButtons;		
+			cursor: pointer;	
+		}//	button
+	}// game-over
+	.table-new {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		width: @sizeTableW;
+		min-height: @sizeTableH;
+		display: flex;
+		flex-wrap: wrap;
+		.rectangle {
+			box-sizing: border-box;
+			position: relative;
+			width: 65px;
+			height: 300px;
+			display: flex;
+			flex-direction: column;
+			&:nth-of-type(7),
+			&:nth-of-type(19){
+				margin-left: 20px;
+			}
+			&:nth-of-type(13),
+			&:nth-of-type(14),
+			&:nth-of-type(15),
+			&:nth-of-type(16),
+			&:nth-of-type(17),
+			&:nth-of-type(18),
+			&:nth-of-type(19),
+			&:nth-of-type(20),
+			&:nth-of-type(21),
+			&:nth-of-type(22),
+			&:nth-of-type(23),
+			&:nth-of-type(24){
+				justify-content: flex-end;
+			}
+			&:nth-of-type(25) {
+				width: @sizeTableW;
+				min-height: 150px;
+				flex-direction: row;
+				margin-top: 10px;
+			}
+		}//	rectangle
+		.half-table {
+			width: 20px;
+		}//  half-table
+	}//	table-new
+	.table {
+		width: @sizeTableW;
+		min-height: @sizeTableH;
+		border: 10px solid @bgHalfTable;
+		position: relative;
+		background: @bgTable;
+		display: flex;
+		flex-wrap: wrap;	
+		.half-table-vertical {
+			box-sizing: border-box;
+			height: @sizeTableH /2 - 40px;
+			width: 20px;
+			background: @bgHalfTable;		
+		}//	half-table-vertical
+		.half-table-horizintal {
+			box-sizing: border-box;
+			height: 80px;
+			width: @sizeTableW;
+			position: relative;
+			padding: 20px 0 0;
+			span {
+				margin-left: 150px;
+				font-family: sans-serif;
+				font-size: 22px;
+				b {
+					color: #fff;
+				}
+				&:nth-of-type(2) {
+					margin-left: 200px;
+				}//	span:nth-of-type(2)
+			}//	span
+			div{
+				height: 80px;
+				width: 20px;
+				background: @bgHalfTable;	
+				position: absolute;
+				top: 0;
+				left: 48.8%;
+			}//	div
+		}//	half-table-horizintal
+		.ractangle-up {
+			width: 0;
+			height: 0;
+			border-left: 32px solid transparent;
+			border-right: 33px solid transparent;
+			border-bottom: 260px solid @bgRectangle1n;
+			&:nth-of-type(2n) {
+				border-bottom: 260px solid @bgRectangle2n;
+			}//	ractangle-up:nth-of-type(2n)
+		}//	ractangle-up
+		.ractangle-down {
+			width: 0;
+			height: 0;
+			border-left: 32px solid transparent;
+			border-right: 33px solid transparent;
+			border-top: 260px solid @bgRectangle1n;
+			&:nth-of-type(2n) {
+				border-top: 260px solid @bgRectangle2n;
+			}//	ractangle-down:nth-of-type(2n)
+		}//	ractangle-down		
+	}//	table
+
+	.kubik-container {
+		width: @sizeKubikContainer;
+		height: @sizeKubikContainer;
+		border: 10px solid @bgHalfTable;
+		background: @bgTable;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		position: relative;		
+		.kubik {
+			box-sizing: border-box;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 30px;
+			font-family: sans-serif;
+			width: @sizeKubik;
+			height: @sizeKubik;
+			border: 3px solid @bgHalfTable;			
+			margin: 10px;
+			cursor: pointer;
+			position: relative;	
+			.kubik-active {
+				width: @sizeKubik;
+				height: @sizeKubik;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				border-radius: 8px;
+				background: rgba(255,255,255,0.5);
+			}//	.kubik-active
+		}//	kubik
+		.dice1 {
+			background-image: url('../../../img/dice1.png');
+			background-size: cover;
+			border: none;
+		}
+		.dice2 {
+			background-image: url('../../../img/dice2.png');
+			background-size: cover;
+			border: none;
+		}
+		.dice3 {
+			background-image: url('../../../img/dice3.png');
+			background-size: cover;
+			border: none;
+		}
+		.dice4 {
+			background-image: url('../../../img/dice4.png');
+			background-size: cover;
+			border: none;
+		}
+		.dice5 {
+			background-image: url('../../../img/dice5.png');
+			background-size: cover;
+			border: none;
+		}
+		.dice6 {
+			background-image: url('../../../img/dice6.png');
+			background-size: cover;
+			border: none;
+		}
+		.kubik-change {
+			width: @sizeKubikContainer;
+			height: @sizeKubikContainer;
+			position: absolute;
+			top: 0;
+			left: 0;
+			// border: 1px solid #fff;
+		}//	kubik-change
+		button {
+			width: @sizeButton * 3;
+			height: @sizeButton;
+			background: none;
+			outline: none;
+			border: 2px solid @bgHalfTable;
+			border-radius: 20px;
+			font-size: 24px;
+			font-family: sans-serif;
+			color: @colorButtons;			
+		}//	button
+	}//	kubik-container
+	
+	.out-container {
+		.out {
+			width: @sizeOutContainer / 2;
+			height: @sizeOutContainer;
+			border: 10px solid @bgHalfTable;
+			background: @bgTable;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}// out
+	}// out-container
+
+}//container

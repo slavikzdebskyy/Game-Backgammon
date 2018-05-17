@@ -1,0 +1,84 @@
+<div class="container">
+		
+	<div class="out-container">
+			<div class="out">
+				<div *ngFor="let chB of outFeildB" [class]="chB" (click)="turnOutB()"><div class="in-2"><div class="in-1"></div></div></div>		
+			</div>
+			<div class="out">
+				<div *ngFor="let chW of outFeildW" [class]="chW" (click)="turnOutW()"><div class="in-2"><div class="in-1"></div></div></div>		
+			</div>
+	</div>
+	<!-- "out-container -->
+
+
+		<div class="table">	
+			<div class="game-over" *ngIf="gameOverVisible">
+				<div>	
+					<h1>{{massageGameOver}}</h1>
+					<button (click)="continueMatch()">Continue match</button>
+					<button (click)="reset()">Reset score</button>
+				</div>			
+			</div>			
+			<div class="table-new">
+				<div class="rectangle" *ngFor="let elem of feild; let i = index">
+					<div *ngFor="let el of elem.f" [class]="el" (click)="turn(i)"><div class="in-2"><div class="in-1"></div></div></div>
+				</div>		
+			</div>
+			<!-- class="table-new" -->
+
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+				<div class="half-table-vertical"></div>
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+			<div class="ractangle-down"></div>
+				<div class="half-table-horizintal">
+					<span>{{messageTurn}}</span>
+					<div></div>
+					<span>Black: <b>  {{score.black}}</b>		White: <b>  {{score.white}}</b></span>
+				</div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+				<div class="half-table-vertical"></div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+			<div class="ractangle-up"></div>
+			<div class="table-disable" *ngIf="tableDisable"></div>
+	</div>
+	<!-- class="table" -->
+
+	<div class="control">
+		<div class="kubik-container">
+			<div [class]="diceClass1" (click)="changeCubes()"><div class="kubik-active" *ngIf="kub1Disable"></div>	</div>
+			<div [class]="diceClass2"  (click)="changeCubes()"><div class="kubik-active" *ngIf="kub2Disable"></div>	</div>
+			<div class="kubik-change" *ngIf="kubikVisible" (click)="changeKubik()"></div>
+		</div>
+
+		<div class="kubik-container">
+			<button (click)="undo()" *ngIf="undoVisible">Undo</button>
+			<button (click)="nextTurn()" *ngIf="nextPlayerVisible">Next Player</button>	
+		</div>
+	</div>
+	<!-- class="control"> -->
+
+
+
+		
+
+
+</div>
+<!-- div class="container -->

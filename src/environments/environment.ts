@@ -4,5 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+	production: false,
+	local: {
+		dice: 'https://github.com/slavikzdebskyy/bg-images/blob/master/dice1.png'
+	}
 };
